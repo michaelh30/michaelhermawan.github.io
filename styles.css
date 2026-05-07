@@ -205,14 +205,26 @@ a {
   position: relative;
   max-width: 430px;
   justify-self: end;
+  isolation: isolate;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 11% 2% 0 9%;
+  z-index: -1;
+  border-radius: 48% 52% 8px 8px;
+  background:
+    radial-gradient(circle at 58% 25%, rgba(255, 255, 255, 0.95), transparent 32%),
+    linear-gradient(160deg, rgba(22, 199, 232, 0.22), rgba(74, 144, 226, 0.18));
+  box-shadow: var(--shadow);
 }
 
 .hero-visual img {
   aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border: 10px solid var(--white);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 24px 36px rgba(30, 58, 138, 0.22));
 }
 
 .floating-card {
